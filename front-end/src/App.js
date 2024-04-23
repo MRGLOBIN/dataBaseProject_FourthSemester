@@ -1,8 +1,15 @@
+import { Route, Routes } from 'react-router-dom'
+
 import logo from './logo.svg'
+import Home from './routes/home/home.components'
+import Auth from './routes/auth/auth.components'
+import Navigation from './routes/navigation/navigation.components'
+
 import './App.scss'
 
 function App() {
   return (
+
     <div className='App'>
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
@@ -19,6 +26,7 @@ function App() {
         </a>
       </header>
     </div>
+
   )
 }
 
