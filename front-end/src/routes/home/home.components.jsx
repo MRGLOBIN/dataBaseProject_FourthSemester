@@ -1,4 +1,4 @@
-import './auth.styles.scss'
+import './home.styles.scss'
 
 const Home = () => {
   return <div></div>
