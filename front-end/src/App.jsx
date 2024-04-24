@@ -7,26 +7,14 @@ import Navigation from './routes/navigation/navigation.components'
 
 import './App.scss'
 import React from 'react'
+import EarthCanvas from './components/earth-canvas/earth-canvas.components'
 
 class App extends React.Component {
   render() {
     return (
       <div className='App'>
-        <header className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className='App-link'
-            href='https://reactjs.org'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            {' '}
-            Learn React
-          </a>
-        </header>
+        <header className='App-header'></header>
+        <EarthCanvas />
       </div>
     )
   }
