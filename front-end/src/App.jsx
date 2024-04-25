@@ -15,9 +15,9 @@ class App extends React.Component {
   render() {
     return (
       <div className='App'>
-        {/* <header className='App-header'></header> */}
-        <EarthCanvas />
-        <div className='relative z-0 bg-black w-screen h-screen'>
+        <header className='App-header'></header>
+        <div className='relative z-0 bg-primary w-screen h-screen'>
+          <EarthCanvas />
           <StarsCanvas />
         </div>
       </div>
