@@ -7,7 +7,9 @@ import Navigation from './routes/navigation/navigation.components'
 
 import './App.scss'
 import React from 'react'
-import EarthCanvas from './components/earth-canvas/earth-canvas.components'
+
+import EarthCanvas from './components/canvas/earth-canvas/earth-canvas.components'
+import StarsCanvas from './components/canvas/start-canvas/star-canvas.components'
 
 class App extends React.Component {
   render() {
@@ -15,6 +17,9 @@ class App extends React.Component {
       <div className='App'>
         {/* <header className='App-header'></header> */}
         <EarthCanvas />
+        <div className='relative z-0 bg-black w-screen h-screen'>
+          <StarsCanvas />
+        </div>
       </div>
     )
   }
