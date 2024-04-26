@@ -15,10 +15,11 @@ class App extends React.Component {
   render() {
     return (
       <div className='App'>
-        {/* <header className='App-header'></header> */}
+        <header className='App-header'></header>
         <div className='relative z-0 bg-black w-screen h-screen'>
         <Navigation />
         <EarthCanvas />
+
           <StarsCanvas />
         </div>
       </div>
