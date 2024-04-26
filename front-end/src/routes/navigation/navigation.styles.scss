@@ -5,13 +5,14 @@
     padding: 0;
     // background-color: #24252A;
 }
-li,a,button{
+li,a,button1{
     font-family:"Montserrat",sans-serif;
     font-weight: 500;
     font-size: 16px;
-    color: #edf0f1;
+    color: #edf1ee;
     text-decoration: none;
 }
+
 nav{
     display: flex;
     justify-content: space-between;
@@ -37,9 +38,9 @@ color:#0088a9
 
 }
 
-button {
+button1{
 padding: 9px 25px;
-background-color: rgb(54, 198, 227);
+background-color: rgb(24, 49, 55);
 border: none;
 border-radius: 50px;
 cursor: pointer;
