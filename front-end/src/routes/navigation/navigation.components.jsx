@@ -13,7 +13,7 @@ const Navigation = () => {
         <li><a href='#'>Project</a></li>
         <li><a href='#'>Milestones</a></li>
         <li><a href='#'>Deadlines</a></li>
-      <a class="cta" href='#'><button1>About</button1></a>
+      <a  href='#'><button1> About</button1></a>
         </ul>
       </nav>
       </header>
