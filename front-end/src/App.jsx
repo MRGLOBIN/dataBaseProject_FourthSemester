@@ -14,10 +14,12 @@ import StarsCanvas from './components/canvas/start-canvas/star-canvas.components
 class App extends React.Component {
   render() {
     return (
-      <div className='App '>
+      <div className='App'>
         <header className='App-header'></header>
-        <div className='relative z-0 bg-primary w-screen h-screen p-2'>
-          <EarthCanvas />
+        <div className='relative z-0 bg-black w-screen h-screen'>
+        <Navigation />
+        <EarthCanvas />
+
           <StarsCanvas />
         </div>
       </div>
