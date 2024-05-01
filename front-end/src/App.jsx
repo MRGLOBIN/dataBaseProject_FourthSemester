@@ -18,33 +18,21 @@ import {
 
 import EarthCanvas from './components/canvas/earth-canvas/earth-canvas.components'
 import StarsCanvas from './components/canvas/start-canvas/star-canvas.components'
-const variants = {
-  hidden: { x: '100%' },
-  visible: { x: 0 },
-}
+import { div } from 'three/examples/jsm/nodes/Nodes.js'
 
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: 100,
+    }
+  }
   render() {
     return (
-      <div className='App'>
-        <header className='App-header'></header>
-        <div className='relative z-0 bg-black w-screen h-screen'>
-          <Navigation />
-
-          <div
-            className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
-          >
-            <motion.div
-              variants={zoomIn(0.2, 1)}
-              className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
-              initial='hidden'
-              animate='show'
-            >
-              <h1 className='bg-white'>hello</h1>
-            </motion.div>
-          </div>
-          {/* <EarthCanvas /> */}
-          {/* <StarsCanvas /> */}
+      <div className='w-screen h-screen '>
+        <h1 className='text-white hover:bg-green-600'>hello</h1>
+        <div className='bg-black'>
+          <StarsCanvas />
         </div>
       </div>
     )
