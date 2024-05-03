@@ -18,7 +18,7 @@ userSchema.pre('save', async function (next) {
   let user = this
 
   if (user.isModified('password')) {
-    const salt = await bcrypt.genSalt(config.get < number > 'saltWorkFactor')
+    const salt = await bcrypt.genSalt(config.get('saltWorkFactor'))
     const hash = await bcrypt.hash(user.password, salt)
     user.password = hash
   }
@@ -33,4 +33,4 @@ userSchema.methods.comparePassword = async function (candidatePassowrd) {
 
 const UserModel = mongoose.model('User', userSchema)
 
-export default UserModel
+module.exports = UserModel

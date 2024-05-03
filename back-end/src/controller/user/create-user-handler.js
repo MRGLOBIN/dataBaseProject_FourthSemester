@@ -1,8 +1,8 @@
 const { omit } = require('loadsh')
 const logger = require('../../utils/logger')
-const { createUser } = require('../../server/user.service')
+const { createUser } = require('../../service/user.service')
 
-export async function createUserHandler(req, res) {
+async function createUserHandler(req, res) {
   try {
     const user = await createUser(req.body)
     return res.send(omit(user.toJSON(), 'password'))
@@ -10,4 +10,8 @@ export async function createUserHandler(req, res) {
     logger.error(error)
     return res.status(409).send(error.message)
   }
+}
+
+module.exports = {
+  createUserHandler,
 }
