@@ -7,7 +7,6 @@ const validateResource = schema => (req, res, next) => {
       params: req.params,
     })
     next()
-    return
   } catch (event) {
     return res.sendStatus(400).send(event.errors)
   }
