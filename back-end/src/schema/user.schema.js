@@ -20,4 +20,15 @@ const createUserSchema = object({
   }),
 })
 
-module.exports = createUserSchema
+const loginUserSchema = object({
+  body: object({
+    email: string({
+      required_error: 'email is required',
+    }).email('Not a valid email'),
+    password: string({
+      required_error: 'password is required',
+    }),
+  }),
+})
+
+module.exports = { createUserSchema, loginUserSchema }

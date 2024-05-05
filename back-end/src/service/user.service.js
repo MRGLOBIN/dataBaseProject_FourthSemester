@@ -8,6 +8,22 @@ async function createUser(input) {
   }
 }
 
+async function loginUser({ email, password }) {
+  const user = await UserModel.findOne({ email })
+
+  if (!user) {
+    return { error: 'email not found' }
+  }
+  const isMatch = await user.comparePassword(password)
+
+  if (!isMatch) {
+    return { error: 'invalid password' }
+  }
+
+  return user
+}
+
 module.exports = {
   createUser,
+  loginUser,
 }
