@@ -5,6 +5,6 @@ const MileStoneSchema = new mongoose.Schema({
   description: { type: String, required: true },
 })
 
-const MileStonrModel = mongoose.model('MileStone', MileStoneSchema)
+const MileStoneModel = mongoose.model('MileStone', MileStoneSchema)
 
-export default MileStonrModel
+export default MileStoneModel

@@ -31,11 +31,11 @@ StudentSchema.pre('save', async function (next) {
   return next()
 })
 
-StudentSchema.methods.comparePassword = async function (candidatePassowrd) {
+StudentSchema.methods.comparePassword = async function (candidatePassword) {
   let student = this
-  return bcrypt.compare(candidatePassowrd, student.password).catch(() => false)
+  return bcrypt.compare(candidatePassword, student.password).catch(() => false)
 }
 
-const StudentModel = mongoose.model('User', StudentSchema)
+const StudentModel = mongoose.model('Student', StudentSchema)
 
 module.exports = StudentModel

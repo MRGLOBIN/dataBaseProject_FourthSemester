@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const SupervisorSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  availabe: { type: Boolean, required: true },
+  available: { type: Boolean, required: true },
 
   // reference
   group: { type: Schema.Types.ObjectId },
