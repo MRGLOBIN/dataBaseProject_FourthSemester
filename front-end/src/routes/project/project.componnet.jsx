@@ -53,7 +53,6 @@ const Project = () => {
   return (
     <>
       <UserNotLoginProject />
-      <Outlet />
     </>
   )
 }

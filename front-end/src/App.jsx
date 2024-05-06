@@ -1,15 +1,15 @@
+import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 import Home from './routes/home/home.components'
-import Project from './routes/project/project.componnet'
-
-import logo from './logo.svg'
 import Auth from './routes/auth/auth.components'
+import Project from './routes/project/project.componnet'
+import Milestone from './routes/milestone/milestone.components'
 import Navigation from './routes/navigation/navigation.components'
+import Footer from './components/footer/footer.components'
 
 import './App.scss'
-import React from 'react'
 
 import {
   textVariant,
@@ -18,9 +18,6 @@ import {
   zoomIn,
   fadeIn,
 } from './utils/framer-motion/motion'
-
-import Footer from './components/footer/footer.components'
-import SignInForm from './components/sign-in-form/sign-in-form.components'
 
 import StarsCanvas from './components/canvas/start-canvas/star-canvas.components'
 
@@ -38,7 +35,7 @@ class App extends React.Component {
             <Route index element={<Home />} />
             <Route path='project' element={<Project />} />
             <Route path='auth' element={<Auth />} />
-            {/* <Route path='checkout' element={<Checkout />} /> */}
+            <Route path='milestone' element={<Milestone />} />
           </Route>
         </Routes>
         <StarsCanvas />
