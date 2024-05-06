@@ -1,7 +1,10 @@
 import { Route, Routes } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import logo from './logo.svg'
+
 import Home from './routes/home/home.components'
+import Project from './routes/project/project.componnet'
+
+import logo from './logo.svg'
 import Auth from './routes/auth/auth.components'
 import Navigation from './routes/navigation/navigation.components'
 
@@ -16,7 +19,9 @@ import {
   fadeIn,
 } from './utils/framer-motion/motion'
 
-import EarthCanvas from './components/canvas/earth-canvas/earth-canvas.components'
+import Footer from './components/footer/footer.components'
+import SignInForm from './components/sign-in-form/sign-in-form.components'
+
 import StarsCanvas from './components/canvas/start-canvas/star-canvas.components'
 
 const variants = {
@@ -25,42 +30,49 @@ const variants = {
 }
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      value: 100,
-    }
-  }
   render() {
     return (
-      <div className='App'>
-        <header className='App-header'></header>
-        <div className='relative z-0 bg-black w-screen h-screen'>
-          <Navigation />
-
-          <div
-            className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
-          >
-            <motion.div
-              variants={zoomIn(0.2, 1)}
-              className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
-              initial='hidden'
-              animate='show'
-            >
-              <h1 className='bg-white'>hello</h1>
-            </motion.div>
-          </div>
-          {/* <EarthCanvas /> */}
-          {/* <StarsCanvas /> */}
-
-          <SignInForm />
-          <EarthCanvas />
-          <StarsCanvas />
-          <Footer />
-        </div>
-      </div>
+      <>
+        <Routes>
+          <Route path='/' element={<Navigation />}>
+            <Route index element={<Home />} />
+            <Route path='project' element={<Project />} />
+            <Route path='auth' element={<Auth />} />
+            {/* <Route path='checkout' element={<Checkout />} /> */}
+          </Route>
+        </Routes>
+        <StarsCanvas />
+        <Footer />
+      </>
     )
   }
 }
 
 export default App
+
+//   <header className='App-header'></header>
+//   <div className='relative z-0 bg-black w-screen h-screen'>
+//     <Navigation />
+
+//     <div
+//       className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
+//     >
+//       <motion.div
+//         variants={zoomIn(0.2, 1)}
+//         className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
+//         initial='hidden'
+//         animate='show'
+//       >
+//         <h1 className='bg-white'>hello</h1>
+//       </motion.div>
+//     </div>
+//     {/* <EarthCanvas /> */}
+//     {/* <StarsCanvas /> */}
+
+//     <SignInForm />
+
+//     <EarthCanvas />
+
+//     <StarsCanvas />
+//     <Footer />
+//   </div>
