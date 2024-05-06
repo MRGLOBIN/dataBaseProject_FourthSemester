@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Route, Routes } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import logo from './logo.svg'
@@ -23,19 +22,18 @@ const variants = {
   hidden: { x: '100%' },
   visible: { x: 0 },
 }
-=======
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import logo from './logo.svg';
-import Home from './routes/home/home.components';
-import Auth from './routes/auth/auth.components';
-import Navigation from './routes/navigation/navigation.components';
-import './App.scss';
-import EarthCanvas from './components/canvas/earth-canvas/earth-canvas.components';
-import StarsCanvas from './components/canvas/start-canvas/star-canvas.components';
-import SignInForm from './components/sign-in-form/sign-in-form.components';
-import Footer from './components/footer/footer.components';
->>>>>>> f869393f0b28bbc5889d6fc769699a21ca84a0f5
+
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import logo from './logo.svg'
+import Home from './routes/home/home.components'
+import Auth from './routes/auth/auth.components'
+import Navigation from './routes/navigation/navigation.components'
+import './App.scss'
+import EarthCanvas from './components/canvas/earth-canvas/earth-canvas.components'
+import StarsCanvas from './components/canvas/start-canvas/star-canvas.components'
+import SignInForm from './components/sign-in-form/sign-in-form.components'
+import Footer from './components/footer/footer.components'
 
 class App extends React.Component {
   render() {
@@ -44,7 +42,6 @@ class App extends React.Component {
         <header className='App-header'></header>
         <div className='relative z-0 bg-black w-screen h-screen'>
           <Navigation />
-<<<<<<< HEAD
 
           <div
             className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
@@ -60,16 +57,15 @@ class App extends React.Component {
           </div>
           {/* <EarthCanvas /> */}
           {/* <StarsCanvas /> */}
-=======
+
           <SignInForm />
           <EarthCanvas />
           <StarsCanvas />
-          <Footer/>
->>>>>>> f869393f0b28bbc5889d6fc769699a21ca84a0f5
+          <Footer />
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
