@@ -1,10 +1,13 @@
+import { useContext } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 
+import { UserContext } from '../../context/user.context'
 import SVGComponent from '../../assets/logo'
 
 import './navigation.styles.scss'
 
 const Navigation = () => {
+  const { currentUser } = useContext(UserContext)
   return (
     <>
       <div className='navigation text-white'>
@@ -18,15 +21,13 @@ const Navigation = () => {
           <Link className='nav-link' to='milestone'>
             Milestones
           </Link>
-          {/* {currentUser ? (
-            <span className='nav-link' onClick={SignOurUser}>
-              Sign Out
-            </span>
-          ) : ( */}
-          <Link className='nav-link' to='auth'>
-            Sign In
-          </Link>
-          {/* )} */}
+          {currentUser ? (
+            <span className='nav-link'>Sign Out</span>
+          ) : (
+            <Link className='nav-link' to='auth'>
+              Sign In
+            </Link>
+          )}
           {/* {<CartIcon />} */}
         </div>
       </div>

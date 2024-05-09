@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 
 import { UserProvider } from './context/user.context'
+import { ProjectProvider } from './context/project.context'
 
 import App from './App'
 
@@ -16,7 +17,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <App />
+        <ProjectProvider>
+          <App />
+        </ProjectProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>

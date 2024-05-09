@@ -38,7 +38,7 @@ class App extends React.Component {
             <Route path='milestone' element={<Milestone />} />
           </Route>
         </Routes>
-        <StarsCanvas />
+        {/* <StarsCanvas /> */}
         <Footer />
       </>
     )
