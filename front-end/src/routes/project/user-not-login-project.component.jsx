@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 
-import CreateGroupForm from './create-group-form.component'
 import EarthCanvas from '../../components/canvas/earth-canvas/earth-canvas.components'
 
 import {
