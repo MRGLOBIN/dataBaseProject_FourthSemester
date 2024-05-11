@@ -11,6 +11,7 @@ import App from './App'
 import './index.scss'
 
 import reportWebVitals from './reportWebVitals'
+import { MilestoneProvider } from './context/ milestone.context'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -18,7 +19,9 @@ root.render(
     <BrowserRouter>
       <UserProvider>
         <ProjectProvider>
-          <App />
+          <MilestoneProvider>
+            <App />
+          </MilestoneProvider>
         </ProjectProvider>
       </UserProvider>
     </BrowserRouter>

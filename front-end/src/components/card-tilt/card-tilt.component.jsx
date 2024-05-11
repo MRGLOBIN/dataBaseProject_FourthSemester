@@ -24,7 +24,11 @@ const CardTilt = ({ index, mem }) => {
           }}
           className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
         >
-          <img src='pic' alt={mem} className='w-16 h-16 object-contain' />
+          <img
+            src='images/person.png'
+            alt={mem}
+            className='w-16 h-16 object-contain'
+          />
 
           <h3 className='text-white text-[20px] font-bold text-center'>
             {mem}

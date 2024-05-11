@@ -23,7 +23,7 @@ const Project = () => {
   const { projectDescription } = useContext(ProjectContext)
   return (
     <>
-      <UserLoginNotGroup project={projectDescription} />
+      <UserLoginAndProect project={projectDescription} />
     </>
   )
 }

@@ -1,0 +1,22 @@
+.checkout-item-container {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px auto 0;
+
+  .title {
+    width: 30%;
+  }
+
+  .name {
+    width: 33%;
+  }
+
+  .remove-button {
+    padding-left: 12px;
+    cursor: pointer;
+  }
+}
