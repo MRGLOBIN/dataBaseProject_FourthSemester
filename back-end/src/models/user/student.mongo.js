@@ -9,6 +9,7 @@ const StudentSchema = new mongoose.Schema(
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    id: { type: Number, required: true },
 
     // reference
     group: { type: Schema.Types.ObjectId, ref: 'Group' },
@@ -18,7 +19,6 @@ const StudentSchema = new mongoose.Schema(
   }
 )
 
-// cant find type for next function, in mongoose 6 this has type mongoose.HooksNextFunction
 StudentSchema.pre('save', async function (next) {
   let student = this
 

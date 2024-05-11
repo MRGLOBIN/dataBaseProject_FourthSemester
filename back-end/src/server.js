@@ -1,7 +1,7 @@
 const express = require('express')
 const config = require('config')
 
-const routes = require('./routes')
+const routes = require('./appRoutes.js')
 const connect = require('./utils/connect-to-db.js')
 const logger = require('./utils/logger.js')
 

@@ -7,6 +7,10 @@ async function createStudent(student) {
   return await StudentModel.create(student)
 }
 
+async function createSupervisor(supervisor) {
+  return await SupervisorModel.create(supervisor)
+}
+
 async function createGroup(group, studentIds) {
   const createdGroup = await GroupModel.create(group)
   const updateOperation = {
@@ -26,4 +30,11 @@ async function createMileStone(mileStone, groupId) {
   )
 
   return createdMileStone
+}
+
+module.exports = {
+  createStudent,
+  createSupervisor,
+  createGroup,
+  createMileStone,
 }

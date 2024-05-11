@@ -1,10 +1,11 @@
 const { omit } = require('loadsh')
-const logger = require('../../utils/logger')
-const { createUser } = require('../../service/user.service')
 
-async function createUserHandler(req, res) {
+const logger = require('../../utils/logger')
+const { createStudent } = require('../../service/user.service')
+
+async function createStudentHandler(req, res) {
   try {
-    const user = await createUser(req.body)
+    const user = await createStudent(req.body)
     return res.send(omit(user.toJSON(), 'password'))
   } catch (error) {
     logger.error(error)
@@ -13,5 +14,5 @@ async function createUserHandler(req, res) {
 }
 
 module.exports = {
-  createUserHandler,
+  createStudentHandler,
 }

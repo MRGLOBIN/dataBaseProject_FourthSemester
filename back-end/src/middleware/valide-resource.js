@@ -5,10 +5,10 @@ const validateResource = schema => (req, res, next) => {
       query: req.query,
       params: req.params,
     })
+
     next()
   } catch (event) {
-    console.log('hit')
-    return res.sendStatus(400).send(event.errors)
+    return res.status(400).send(event.errors)
   }
 }
 
