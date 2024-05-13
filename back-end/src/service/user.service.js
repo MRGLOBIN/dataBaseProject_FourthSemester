@@ -20,7 +20,6 @@ async function createSupervisor(input) {
 
 async function createProject(group) {
   const createdProject = await projectModel.create(group)
-
   const studentIDs = [
     createdProject.idgmem1,
     createdProject.idgmem2,
@@ -52,7 +51,6 @@ async function loginUser({ email, password }) {
   if (!isMatch) {
     return { error: 'invalid password' }
   }
-  console.log(user)
   return user
 }
 

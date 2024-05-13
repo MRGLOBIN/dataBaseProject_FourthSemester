@@ -36,4 +36,25 @@ const loginUserSchema = object({
   }),
 })
 
+const projectSchema = object({
+  body: object({
+    title: string({
+      required_error: 'title is required',
+    }),
+    desc: string({
+      required_error: 'Project description is required',
+    }),
+    gmem1: string({
+      required_error: 'Group member 1 name is required',
+    }),
+    geme2: string({
+      required_error: 'Group member 2 name is required',
+    }),
+    geme3: string({
+      required_error: 'Group member 3 name is required',
+    }),
+    idgmem1: string(),
+  }),
+})
+
 module.exports = { createUserSchema, loginUserSchema }

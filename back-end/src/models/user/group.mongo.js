@@ -7,9 +7,9 @@ const projectSchema = new mongoose.Schema({
   gmem1: { type: String, required: true },
   gmem2: { type: String, required: true },
   gmem3: { type: String, required: true },
-  idgmem1: { type: Number, required: true },
-  idgmem2: { type: Number, required: true },
-  idgmem3: { type: Number, required: true },
+  idGmem1: { type: Number, required: true },
+  idGmem2: { type: Number, required: true },
+  idGmem3: { type: Number, required: true },
   supervisor: { type: String },
   // status: { type: String },
 
