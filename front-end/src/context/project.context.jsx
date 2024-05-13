@@ -19,7 +19,7 @@ const projectTestValue = {
 }
 
 export const ProjectProvider = ({ children }) => {
-  const [projectDescription, setProjectDescription] = useState(projectTestValue)
+  const [projectDescription, setProjectDescription] = useState(null)
   const value = { projectDescription, setProjectDescription }
 
   return (

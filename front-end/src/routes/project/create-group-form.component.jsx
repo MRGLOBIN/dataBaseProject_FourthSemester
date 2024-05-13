@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 import Button from '../../components/button/button.components'
 import FormInput from '../../components/form-input/form-input.components'
+import { ProjectContext } from '../../context/project.context'
 
 const defaultFormFields = {
   title: '',
@@ -16,20 +17,37 @@ const defaultFormFields = {
 
 const CreateGroupForm = () => {
   const [formFileds, setFormField] = useState(defaultFormFields)
+
+  const [setProjectDescription] = useContext(ProjectContext)
+
   const { title, desc, gmem1, gmem2, gmem3, idGmem1, idGmem2, idGmem3 } =
     formFileds
 
   const onChangeHandler = event => {
+    console.log(event.target.name)
     const { name, value } = event.target
     setFormField({ ...formFileds, [name]: value })
-
-    const resetFormFiled = () => {
-      setFormField(defaultFormFields)
-    }
   }
 
-  const handleSubmit = event => {
+  const resetFormFiled = () => {
+    setFormField(defaultFormFields)
+  }
+
+  const handleSubmit = async event => {
     event.preventDefault()
+    const URL = 'http://localhost:1337/api/user/create/project'
+
+    const response = await fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formFileds),
+    })
+      .then(res => res.json())
+      .catch(e => console.log(e))
+
+    setProjectDescription(response)
   }
 
   return (
@@ -40,7 +58,7 @@ const CreateGroupForm = () => {
           type='text'
           required
           onChange={onChangeHandler}
-          name='ProjectTitle'
+          name='title'
           value={title}
         />
         <FormInput
@@ -48,7 +66,7 @@ const CreateGroupForm = () => {
           type='text'
           required
           onChange={onChangeHandler}
-          name='description'
+          name='desc'
           value={desc}
         />
         <FormInput
@@ -56,7 +74,7 @@ const CreateGroupForm = () => {
           type='text'
           required
           onChange={onChangeHandler}
-          name='mem1'
+          name='gmem1'
           value={gmem1}
         />
         <FormInput
@@ -64,7 +82,7 @@ const CreateGroupForm = () => {
           type='text'
           required
           onChange={onChangeHandler}
-          name='mem1'
+          name='idGmem1'
           value={idGmem1}
         />
         <FormInput
@@ -72,7 +90,7 @@ const CreateGroupForm = () => {
           type='text'
           required
           onChange={onChangeHandler}
-          name='mem 2'
+          name='gmem2'
           value={gmem2}
         />
         <FormInput
@@ -80,7 +98,7 @@ const CreateGroupForm = () => {
           type='text'
           required
           onChange={onChangeHandler}
-          name='mem1'
+          name='idGmem2'
           value={idGmem2}
         />
         <FormInput
@@ -88,7 +106,7 @@ const CreateGroupForm = () => {
           type='text'
           required
           onChange={onChangeHandler}
-          name='mem 3'
+          name='gmem3'
           value={gmem3}
         />
         <FormInput
@@ -96,7 +114,7 @@ const CreateGroupForm = () => {
           type='text'
           required
           onChange={onChangeHandler}
-          name='mem1'
+          name='idGmem3'
           value={idGmem3}
         />
         <div className='buttons-container'>
