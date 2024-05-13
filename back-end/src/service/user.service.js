@@ -18,19 +18,26 @@ async function createSupervisor(input) {
   }
 }
 
-async function createProject(group, studentIds) {
+async function createProject(group) {
   const createdProject = await projectModel.create(group)
+
+  const studentIDs = [
+    createdProject.idgmem1,
+    createdProject.idgmem2,
+    createdProject.idgmem3,
+  ]
+
   const updateOperation = {
-    $set: { group: createdGroup._id },
+    $set: { group: createdProject._id },
   }
 
-  await studentModel.updateMany({ id: { $in: studentIds } }, updateOperation)
+  await studentModel.updateMany({ id: { $in: studentIDs } }, updateOperation)
 
   return createdProject
 }
 
 async function loginUser({ email, password }) {
-  const user = await studentModel.findOne({ email })
+  let user = await studentModel.findOne({ email })
 
   if (!user) {
     user = await SupervisorModel.findOne({ email })
@@ -45,7 +52,7 @@ async function loginUser({ email, password }) {
   if (!isMatch) {
     return { error: 'invalid password' }
   }
-
+  console.log(user)
   return user
 }
 
@@ -55,7 +62,10 @@ async function acceptGroup(supervisorID, groupID) {
     { $set: { group: groupID, available: false } },
     { new: true }
   )
-
+  await projectModel.findOneAndUpdate(
+    { _id: groupID },
+    { $set: { supervisor: supervisor.name } }
+  )
   return supervisor
 }
 

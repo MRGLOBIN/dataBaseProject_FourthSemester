@@ -11,7 +11,7 @@ const projectSchema = new mongoose.Schema({
   idgmem2: { type: Number, required: true },
   idgmem3: { type: Number, required: true },
   supervisor: { type: String },
-  status: { type: String },
+  // status: { type: String },
 
   // reference
   milestone: [{ type: Schema.Types.ObjectId, ref: 'MileStone' }],

@@ -9,7 +9,7 @@ const StudentSchema = new mongoose.Schema(
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    id: { type: Number, required: true },
+    id: { type: Number, required: true, unique: true },
 
     // reference
     group: { type: Schema.Types.ObjectId, ref: 'Group' },

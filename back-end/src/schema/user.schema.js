@@ -1,4 +1,12 @@
-const { object, string } = require('zod')
+const { object, string, number, boolean } = require('zod')
+
+const stringToNumber = value => {
+  const parsedValue = parseInt(value)
+  if (isNaN(parsedValue)) {
+    throw new Error('Value must be a number')
+  }
+  return parsedValue
+}
 
 const createUserSchema = object({
   body: object({
@@ -11,6 +19,9 @@ const createUserSchema = object({
     email: string({
       required_error: 'email is required',
     }).email('Not a valid email'),
+    id: string({
+      required_error: 'id is required',
+    }),
   }),
 })
 
