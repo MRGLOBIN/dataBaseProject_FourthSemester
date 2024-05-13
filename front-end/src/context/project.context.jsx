@@ -14,7 +14,7 @@ const projectTestValue = {
   idGmem1: '',
   idGmem2: '',
   idGmem3: '',
-  superVisor: 'Anas Bilal',
+  supervisor: 'Anas Bilal',
   status: 'in its initial stage',
 }
 

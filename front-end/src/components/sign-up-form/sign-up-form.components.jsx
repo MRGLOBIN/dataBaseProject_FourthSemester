@@ -1,22 +1,26 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 import FormInput from '../form-input/form-input.components'
 
 import Button from '../button/button.components'
 
 import './sign-up-form.styles.scss'
+import { UserContext } from '../../context/user.context'
 
 const defaultFormFields = {
-  displayName: '',
+  name: '',
   email: '',
   password: '',
-  confirmPassword: '',
+  id: '',
 }
 
 const SignupForm = () => {
+  const [isChecked, setIsChecked] = useState(false)
   const [formFileds, setFormField] = useState(defaultFormFields)
 
-  const { displayName, email, password, confirmPassword } = formFileds
+  const { setCurrentUser } = useContext(UserContext)
+
+  const { name, email, password, id } = formFileds
 
   const onChangeHandler = event => {
     const { name, value } = event.target
@@ -27,8 +31,30 @@ const SignupForm = () => {
     setFormField(defaultFormFields)
   }
 
+  const handleCheckboxChange = event => {
+    setIsChecked(event.target.checked)
+  }
+
   const handleSubmit = async event => {
     event.preventDefault()
+    let URL
+    if (isChecked) {
+      URL = 'http://localhost:1337/api/user/create/supervisor'
+    } else {
+      URL = 'http://localhost:1337/api/user/create/student'
+    }
+
+    const response = await fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formFileds),
+    })
+      .then(res => res.json())
+      .catch(e => console.log(e))
+
+    setCurrentUser(response)
   }
 
   return (
@@ -43,8 +69,8 @@ const SignupForm = () => {
           type='text'
           required
           onChange={onChangeHandler}
-          name='displayName'
-          value={displayName}
+          name='name'
+          value={name}
         />
 
         <FormInput
@@ -65,15 +91,27 @@ const SignupForm = () => {
           value={password}
         />
 
-        <FormInput
-          label='Confirm Password'
-          type='password'
-          required
-          onChange={onChangeHandler}
-          name='confirmPassword'
-          value={confirmPassword}
-        />
-
+        {!isChecked && (
+          <FormInput
+            label='REG ID'
+            type='password'
+            required
+            onChange={onChangeHandler}
+            name='id'
+            value={id}
+          />
+        )}
+        <div>
+          <input
+            type='checkbox'
+            checked={isChecked}
+            onChange={handleCheckboxChange}
+          />
+          {/* Label for the checkbox */}
+          {/* Display checkbox value */}
+          <label className='text-white p-2'>Are you Supervior</label>
+          <p>Checkbox value: {isChecked ? 'Checked' : 'Unchecked'}</p>
+        </div>
         <Button type='submit'>Sign Up</Button>
       </form>
     </div>

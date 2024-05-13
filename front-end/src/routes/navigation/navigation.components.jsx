@@ -7,7 +7,12 @@ import SVGComponent from '../../assets/logo'
 import './navigation.styles.scss'
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext)
+  const { currentUser, setCurrentUser } = useContext(UserContext)
+
+  const signOutUser = () => {
+    setCurrentUser(null)
+  }
+
   return (
     <>
       <div className='navigation text-white'>
@@ -22,7 +27,9 @@ const Navigation = () => {
             Milestones
           </Link>
           {currentUser ? (
-            <span className='nav-link'>Sign Out</span>
+            <span className='nav-link' onClick={signOutUser}>
+              Sign Out
+            </span>
           ) : (
             <Link className='nav-link' to='auth'>
               Sign In

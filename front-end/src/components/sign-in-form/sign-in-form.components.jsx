@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 import FormInput from '../form-input/form-input.components'
 import Button from '../button/button.components'
 
 import './sign-in-form.styles.scss'
+import { UserContext } from '../../context/user.context'
 
 const defaultFormFields = {
   email: '',
@@ -12,6 +13,8 @@ const defaultFormFields = {
 
 const SignInForm = () => {
   const [formFileds, setFormField] = useState(defaultFormFields)
+
+  const { currentUser, setCurrentUser } = useContext(UserContext)
 
   const { email, password } = formFileds
 
@@ -24,8 +27,21 @@ const SignInForm = () => {
     setFormField(defaultFormFields)
   }
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault()
+    const URL = 'http://localhost:1337/api/user/login'
+
+    const response = await fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formFileds),
+    })
+      .then(res => res.json())
+      .catch(e => console.log(e))
+
+    setCurrentUser(response)
   }
 
   return (
@@ -54,12 +70,22 @@ const SignInForm = () => {
           name='password'
           value={password}
         />
-
+        {/* <div>
+          <input
+            type='checkbox'
+            checked={isChecked}
+            onChange={handleCheckboxChange}
+          />
+          {/* Label for the checkbox *
+          {/* Display checkbox value * 
+          <label className='text-white p-2'>Are you Supervior</label>
+          <p>Checkbox value: {isChecked ? 'Checked' : 'Unchecked'}</p>
+        </div> */}
         <div className='buttons-container'>
           <Button type='submit'>Sign In</Button>
-          <Button type='button' buttonType='google'>
+          {/* <Button type='button' buttonType='google'>
             Google
-          </Button>
+          </Button> */}
         </div>
       </form>
     </div>
