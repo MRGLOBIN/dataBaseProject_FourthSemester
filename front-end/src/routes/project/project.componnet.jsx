@@ -26,17 +26,17 @@ const Project = () => {
 
   return (
     <>
-      <UserLoginNotGroup project={projectDescription} />
+      {(!currentUser && <UserNotLoginProject project={projectDescription} />) ||
+        (currentUser && projectDescription && (
+          <UserLoginAndProect project={projectDescription} />
+        )) ||
+        (currentUser && <UserLoginNotGroup project={projectDescription} />)}
     </>
   )
 }
 
 export default Project
 
-// {
-//   (!currentUser && <UserNotLoginProject project={projectDescription} />) ||
-//     (currentUser && projectDescription && (
-//       <UserLoginNotGroup project={projectDescription} />
-//     )) ||
-//     (currentUser && <UserLoginNotGroup project={projectDescription} />)
-// }
+{
+  /* <UserLoginNotGroup project={projectDescription} /> */
+}

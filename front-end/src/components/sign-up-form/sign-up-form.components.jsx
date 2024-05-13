@@ -55,6 +55,7 @@ const SignupForm = () => {
       .catch(e => console.log(e))
 
     setCurrentUser(response)
+    resetFormFiled()
   }
 
   return (

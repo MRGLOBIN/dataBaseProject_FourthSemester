@@ -18,13 +18,13 @@ const defaultFormFields = {
 const CreateGroupForm = () => {
   const [formFileds, setFormField] = useState(defaultFormFields)
 
-  const [setProjectDescription] = useContext(ProjectContext)
+  const { setProjectDescription, projectDescription } =
+    useContext(ProjectContext)
 
   const { title, desc, gmem1, gmem2, gmem3, idGmem1, idGmem2, idGmem3 } =
     formFileds
 
   const onChangeHandler = event => {
-    console.log(event.target.name)
     const { name, value } = event.target
     setFormField({ ...formFileds, [name]: value })
   }
@@ -48,6 +48,7 @@ const CreateGroupForm = () => {
       .catch(e => console.log(e))
 
     setProjectDescription(response)
+    resetFormFiled()
   }
 
   return (

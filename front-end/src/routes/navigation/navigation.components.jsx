@@ -5,12 +5,15 @@ import { UserContext } from '../../context/user.context'
 import SVGComponent from '../../assets/logo'
 
 import './navigation.styles.scss'
+import { ProjectContext } from '../../context/project.context'
 
 const Navigation = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext)
+  const { setProjectDescription } = useContext(ProjectContext)
 
   const signOutUser = () => {
     setCurrentUser(null)
+    setProjectDescription(null)
   }
 
   return (
