@@ -12,7 +12,7 @@ const SupervisorSchema = new mongoose.Schema(
     available: { type: Boolean, default: true },
 
     // reference
-    group: { type: Schema.Types.ObjectId },
+    group: { type: Schema.Types.ObjectId, ref: 'project' },
   },
   {
     timestamps: true,

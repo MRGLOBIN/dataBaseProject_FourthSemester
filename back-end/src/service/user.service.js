@@ -21,9 +21,9 @@ async function createSupervisor(input) {
 async function createProject(group) {
   const createdProject = await projectModel.create(group)
   const studentIDs = [
-    createdProject.idgmem1,
-    createdProject.idgmem2,
-    createdProject.idgmem3,
+    createdProject.idGmem1,
+    createdProject.idGmem2,
+    createdProject.idGmem3,
   ]
 
   const updateOperation = {
@@ -67,6 +67,20 @@ async function acceptGroup(supervisorID, groupID) {
   return supervisor
 }
 
+async function searchCurrentProject(_id) {
+  let project = await studentModel.findOne({ _id }).populate('group').exec()
+
+  if (!project) {
+    project = await SupervisorModel.findOne({ _id }).populate('group').exec()
+  }
+
+  if (!project) {
+    return null
+  }
+
+  return project
+}
+
 async function searchAvailabeGroups() {
   const availableGroups = await projectModel.find({
     supervisor: { $exists: false },
@@ -81,5 +95,6 @@ module.exports = {
   loginUser,
   createProject,
   acceptGroup,
+  searchCurrentProject,
   searchAvailabeGroups,
 }

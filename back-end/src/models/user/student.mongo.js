@@ -12,7 +12,7 @@ const StudentSchema = new mongoose.Schema(
     id: { type: Number, required: true, unique: true },
 
     // reference
-    group: { type: Schema.Types.ObjectId, ref: 'Group' },
+    group: { type: Schema.Types.ObjectId, ref: 'project' },
   },
   {
     timestamps: true,

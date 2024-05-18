@@ -1,7 +1,11 @@
 const { omit } = require('loadsh')
 
 const logger = require('../../utils/logger')
-const { loginUser, acceptGroup } = require('../../service/user.service')
+const {
+  loginUser,
+  acceptGroup,
+  searchCurrentProject,
+} = require('../../service/user.service')
 
 async function loginUserHandler(req, res) {
   try {
@@ -17,6 +21,11 @@ async function loginUserHandler(req, res) {
   }
 }
 
+async function getCurrentGroup(req, res) {
+  const currentGroup = await searchCurrentProject(req.body)
+  res.send(currentGroup)
+}
+
 async function acceptGroupHandler(req, res) {
   const { supervisorID, groupID } = req.body
   const supervisor = await acceptGroup(supervisorID, groupID)
@@ -25,5 +34,6 @@ async function acceptGroupHandler(req, res) {
 
 module.exports = {
   loginUserHandler,
+  getCurrentGroup,
   acceptGroupHandler,
 }

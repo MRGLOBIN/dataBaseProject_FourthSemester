@@ -9,6 +9,7 @@ const {
 const {
   loginUserHandler,
   acceptGroupHandler,
+  getCurrentGroup,
 } = require('../controller/user/login-user-handler.controller.js.js')
 const {
   createStudentHandler,
@@ -22,25 +23,19 @@ const {
 
 const userRouter = express.Router()
 
-userRouter.get('/searchgroup', searchAvailabeGroupsHandler)
+userRouter.get('/searchgroups', searchAvailabeGroupsHandler)
+
+userRouter.post('/currentproject', getCurrentGroup)
 
 userRouter.post('/acceptgroup', acceptGroupHandler)
 
 userRouter.post(
   '/create/student',
-  (req, res, next) => {
-    console.log(req.body)
-    next()
-  },
   validateResource(createUserSchema),
   createStudentHandler
 )
 
-userRouter.post(
-  '/create/supervisor',
-  validateResource(createUserSchema),
-  createSupervisorHandler
-)
+userRouter.post('/create/supervisor', createSupervisorHandler)
 
 userRouter.post('/create/project', createProjectHandler)
 
