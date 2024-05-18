@@ -119,7 +119,7 @@ const CreateGroupForm = () => {
           value={idGmem3}
         />
         <div className='buttons-container'>
-          <Button type='submit'>Sign In</Button>
+          <Button type='submit'>Create</Button>
         </div>
       </form>
     </>

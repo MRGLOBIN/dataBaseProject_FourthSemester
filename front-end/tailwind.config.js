@@ -13,6 +13,8 @@ module.exports = {
       },
       boxShadow: {
         card: '0px 35px 120px -15px #211e35',
+
+        milestone: '0 3px 6px 2px #1b1736',
       },
     },
   },

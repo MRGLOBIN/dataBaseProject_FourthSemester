@@ -102,7 +102,7 @@ const SignupForm = () => {
             value={id}
           />
         )}
-        <div>
+        <div className='mb-2'>
           <input
             type='checkbox'
             checked={isChecked}
@@ -111,7 +111,7 @@ const SignupForm = () => {
           {/* Label for the checkbox */}
           {/* Display checkbox value */}
           <label className='text-white p-2'>Are you Supervior</label>
-          <p>Checkbox value: {isChecked ? 'Checked' : 'Unchecked'}</p>
+          {/* <p>Checkbox value: {isChecked ? 'Checked' : 'Unchecked'}</p> */}
         </div>
         <Button type='submit'>Sign Up</Button>
       </form>

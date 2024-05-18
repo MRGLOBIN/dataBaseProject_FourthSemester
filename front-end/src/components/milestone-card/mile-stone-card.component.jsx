@@ -1,24 +1,37 @@
 import { useContext } from 'react'
 
-// import { CartContext } from '../../contexts/cart.context'
+import { motion } from 'framer-motion'
 
-import './milestone-card.styles.scss'
+import CardTilt from '../../components/card-tilt/card-tilt.component'
 
-const MilestoneCard = ({ milestoneItem }) => {
-  //   const { name, imageUrl, price, quantity } = cartItem
-  //   const { clearItemFromCart, addItemToCart, removeItemFromCart } =
-  //     useContext(CartContext)
+import { styles } from '../../routes/project/project.styles'
 
-  //   const deleteItemHandler = () => clearItemFromCart(cartItem)
-  //   const addItemHandler = () => addItemToCart(cartItem)
-  //   const removeItemHandler = () => removeItemFromCart(cartItem)
+import {
+  textVariant,
+  slideIn,
+  staggerContainer,
+  zoomIn,
+  fadeIn,
+} from '../../utils/framer-motion/motion'
 
+const MilestoneCard = () => {
   return (
-    <div className='checkout-item-container'>
-      <span className='title'>Title</span>
+    <div className='flex justify-center items-center'>
+      <div className='w-full mt-6 mb-6'>
+        <motion.div
+          variants={slideIn('left', 'tween', 0.2, 1)}
+          className='flex-[0.75] bg-tertiary p-8 rounded-2xl shadow-milestone'
+        >
+          <p className={styles.sectionSubText}>26 may</p>
+          <h3 className={styles.sectionHeadText}>inferface</h3>
+          <br />
+          <p className={styles.sectionSubText}>goblin</p>
 
-      <div className='name'>doc 1 has to be completed toady herere and now</div>
-      <div className='remove-button'>completed</div>
+          <p className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium '>
+            get all the description goes here and no where else
+          </p>
+        </motion.div>
+      </div>
     </div>
   )
 }

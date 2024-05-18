@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 
 import UserNotLoginMilestone from './user-not-login.component'
+import StudentLoginMilestone from './student-login-miltstone.component'
+import SupervisorLoginMilestone from './supervisor-login-milestone.component'
 
 import {
   textVariant,
@@ -10,39 +12,12 @@ import {
   fadeIn,
 } from '../../utils/framer-motion/motion'
 
-import EarthCanvas from '../../components/canvas/earth-canvas/earth-canvas.components'
-
 import './milestone.styles.scss'
-import MilestoneCard from '../../components/milestone-card/mile-stone-card.component'
-
-const StudentLoginMilestone = () => {
-  // const { cartItems, cartTotal } = useContext(CartContext)
-  return (
-    <div className='checkout-container'>
-      <div className='checkout-header'>
-        <div className='header-block'>
-          <span>Title</span>
-        </div>
-        <div className='header-block'>
-          <span>Description</span>
-        </div>
-
-        <div className='header-block'>
-          <span>Status</span>
-        </div>
-      </div>
-      <MilestoneCard />
-      {/* {cartItems.map(cartItem => {
-        return <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-      })} */}
-    </div>
-  )
-}
 
 const Milestone = () => {
   return (
     <>
-      <StudentLoginMilestone />
+      <SupervisorLoginMilestone />
     </>
   )
 }

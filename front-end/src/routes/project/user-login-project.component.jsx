@@ -13,7 +13,7 @@ import {
 import { styles } from './project.styles'
 
 const UserLoginAndProect = ({
-  project: { title, desc, gmem1, gmem2, gmem3, superVisor, status },
+  project: { title, desc, gmem1, gmem2, gmem3, supervisor },
 }) => {
   return (
     <div className='flex justify-between'>
@@ -25,7 +25,7 @@ const UserLoginAndProect = ({
           <p className={styles.sectionSubText}>The Journey So Far</p>
           <h3 className={styles.sectionHeadText}>{title}</h3>
           <br />
-          <p className={styles.sectionSubText}>{superVisor}</p>
+          <p className={styles.sectionSubText}>{supervisor}</p>
 
           <p className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium '>
             {desc}
