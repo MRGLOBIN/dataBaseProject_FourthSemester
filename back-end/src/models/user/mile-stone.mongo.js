@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const Counter = require('./milestone-counter.model')
 
 const MileStoneSchema = new mongoose.Schema({
-  id: { type: Number, required: true, unique: true },
+  id: { type: Number, unique: true },
   title: { type: String, required: true },
   deadline: { type: String, required: true },
   desc: { type: String, required: true },
