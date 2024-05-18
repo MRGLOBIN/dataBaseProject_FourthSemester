@@ -41,11 +41,11 @@ const Project = () => {
       })
         .then(res => res.json())
         .catch(e => console.log(e))
+      // console.log(response)
 
-      console.log(response.group)
-      setProjectDescription(response.group)
+      setProjectDescription(response)
     })()
-  }, [])
+  }, [currentUser])
 
   return (
     <>

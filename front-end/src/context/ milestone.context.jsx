@@ -1,16 +1,26 @@
 import { createContext, useState } from 'react'
 
+// const testValues = [
+//   {
+//     id: 1,
+//     deadline: '26 MAY',
+//     title: 'Master Piece',
+//     subHeading: 'A Ture Art',
+//     desc: 'this is a hello world project',
+//   },
+// ]
+
 export const MilestoneContext = createContext({
-  milestoneDesc: [],
-  setMilestoneDesc: () => null,
+  milestones: [],
+  setMilestones: () => null,
 })
 
 export const MilestoneProvider = ({ children }) => {
-  const [milestoneDesc, setMilestoneDesc] = useState([])
+  const [milestones, setMilestones] = useState(null)
 
   const value = {
-    milestoneDesc,
-    setMilestoneDesc,
+    milestones,
+    setMilestones,
   }
 
   return (

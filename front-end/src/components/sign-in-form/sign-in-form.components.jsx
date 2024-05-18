@@ -14,7 +14,7 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFileds, setFormField] = useState(defaultFormFields)
 
-  const { currentUser, setCurrentUser } = useContext(UserContext)
+  const { setCurrentUser } = useContext(UserContext)
 
   const { email, password } = formFileds
 
@@ -71,22 +71,9 @@ const SignInForm = () => {
           name='password'
           value={password}
         />
-        {/* <div>
-          <input
-            type='checkbox'
-            checked={isChecked}
-            onChange={handleCheckboxChange}
-          />
-          {/* Label for the checkbox *
-          {/* Display checkbox value * 
-          <label className='text-white p-2'>Are you Supervior</label>
-          <p>Checkbox value: {isChecked ? 'Checked' : 'Unchecked'}</p>
-        </div> */}
+
         <div className='buttons-container'>
           <Button type='submit'>Sign In</Button>
-          {/* <Button type='button' buttonType='google'>
-            Google
-          </Button> */}
         </div>
       </form>
     </div>

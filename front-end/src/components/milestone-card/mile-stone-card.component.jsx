@@ -14,7 +14,9 @@ import {
   fadeIn,
 } from '../../utils/framer-motion/motion'
 
-const MilestoneCard = () => {
+const MilestoneCard = ({
+  milestone: { title, deadline, subHeading, desc },
+}) => {
   return (
     <div className='flex justify-center items-center'>
       <div className='w-full mt-6 mb-6'>
@@ -22,13 +24,13 @@ const MilestoneCard = () => {
           variants={slideIn('left', 'tween', 0.2, 1)}
           className='flex-[0.75] bg-tertiary p-8 rounded-2xl shadow-milestone'
         >
-          <p className={styles.sectionSubText}>26 may</p>
-          <h3 className={styles.sectionHeadText}>inferface</h3>
+          <p className={styles.sectionSubText}>{deadline}</p>
+          <h3 className={styles.sectionHeadText}>{title}</h3>
           <br />
-          <p className={styles.sectionSubText}>goblin</p>
+          <p className={styles.sectionSubText}>{subHeading}</p>
 
           <p className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium '>
-            get all the description goes here and no where else
+            {desc}
           </p>
         </motion.div>
       </div>
