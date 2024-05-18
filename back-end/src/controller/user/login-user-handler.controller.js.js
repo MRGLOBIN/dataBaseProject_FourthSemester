@@ -10,8 +10,8 @@ const {
 async function loginUserHandler(req, res) {
   try {
     const user = await loginUser(req.body)
-    if (user.error) {
-      return res.send(user)
+    if (!user) {
+      return res.sendStatus(400)
     }
 
     return res.send(omit(user.toJSON(), 'password'))
@@ -22,7 +22,8 @@ async function loginUserHandler(req, res) {
 }
 
 async function getCurrentGroup(req, res) {
-  const currentGroup = await searchCurrentProject(req.body)
+  const { _id } = req.body
+  const currentGroup = await searchCurrentProject(_id)
   res.send(currentGroup)
 }
 

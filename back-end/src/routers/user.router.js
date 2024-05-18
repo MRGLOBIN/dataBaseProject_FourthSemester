@@ -15,6 +15,8 @@ const {
   createStudentHandler,
   createSupervisorHandler,
   createProjectHandler,
+  createMilestonHandler,
+  getAllMilestoneHandler,
 } = require('../controller/user/create-user-handler.controller.js')
 
 const {
@@ -39,8 +41,10 @@ userRouter.post('/create/supervisor', createSupervisorHandler)
 
 userRouter.post('/create/project', createProjectHandler)
 
-userRouter.post('/create/milestone', () => {})
-
 userRouter.post('/login', validateResource(loginUserSchema), loginUserHandler)
+
+userRouter.post('/create/milestone', createMilestonHandler)
+
+userRouter.post('/search/milestone', getAllMilestoneHandler)
 
 module.exports = userRouter

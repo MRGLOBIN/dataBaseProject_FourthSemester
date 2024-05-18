@@ -1,6 +1,7 @@
 const studentModel = require('../models/user/student.mongo')
 const SupervisorModel = require('../models/user/supervisor.mongo')
 const projectModel = require('../models/user/group.mongo')
+const MileStoneModel = require('../models/user/mile-stone.mongo')
 
 async function createStudent(input) {
   try {
@@ -31,7 +32,6 @@ async function createProject(group) {
   }
 
   await studentModel.updateMany({ id: { $in: studentIDs } }, updateOperation)
-
   return createdProject
 }
 
@@ -43,13 +43,13 @@ async function loginUser({ email, password }) {
   }
 
   if (!user) {
-    return { error: 'email not found' }
+    return null
   }
 
   const isMatch = await user.comparePassword(password)
 
   if (!isMatch) {
-    return { error: 'invalid password' }
+    return null
   }
   return user
 }
@@ -78,7 +78,7 @@ async function searchCurrentProject(_id) {
     return null
   }
 
-  return project
+  return project.group
 }
 
 async function searchAvailabeGroups() {
@@ -89,6 +89,27 @@ async function searchAvailabeGroups() {
   return availableGroups
 }
 
+async function createMileStone({ groupID, milestone }) {
+  const createdMilestone = await MileStoneModel.create(milestone)
+
+  await projectModel.findOneAndUpdate(
+    { _id: groupID },
+    { $push: { milestone: createdMilestone._id } }
+  )
+  return createdMilestone
+}
+
+async function searchAllMilestone({ groupID }) {
+  const Allprojects = await projectModel
+    .findOne({ _id: groupID })
+    .populate('milestone')
+    .exec()
+
+  const { milestone } = Allprojects
+
+  return milestone
+}
+
 module.exports = {
   createStudent,
   createSupervisor,
@@ -97,4 +118,6 @@ module.exports = {
   acceptGroup,
   searchCurrentProject,
   searchAvailabeGroups,
+  createMileStone,
+  searchAllMilestone,
 }

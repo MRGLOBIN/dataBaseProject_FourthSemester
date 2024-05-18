@@ -5,7 +5,10 @@ const {
   createStudent,
   createSupervisor,
   createProject,
+  createMileStone,
+  searchAllMilestone,
 } = require('../../service/user.service')
+const { Error } = require('mongoose')
 
 async function createStudentHandler(req, res) {
   try {
@@ -37,8 +40,31 @@ async function createProjectHandler(req, res) {
   }
 }
 
+async function createMilestonHandler(req, res) {
+  try {
+    const { groupID, ...milestone } = req.body
+    const createdMilestone = await createMileStone({ groupID, milestone })
+    res.send(createdMilestone)
+  } catch (e) {
+    logger.error(e)
+    return res.status(400)
+  }
+}
+
+async function getAllMilestoneHandler(req, res) {
+  try {
+    const mileStones = await searchAllMilestone(req.body)
+    res.send(mileStones)
+  } catch (e) {
+    logger.error(e)
+    res.sendStatus(400)
+  }
+}
+
 module.exports = {
   createStudentHandler,
   createSupervisorHandler,
   createProjectHandler,
+  createMilestonHandler,
+  getAllMilestoneHandler,
 }
