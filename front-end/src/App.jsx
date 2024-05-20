@@ -46,30 +46,3 @@ class App extends React.Component {
 }
 
 export default App
-
-//   <header className='App-header'></header>
-//   <div className='relative z-0 bg-black w-screen h-screen'>
-//     <Navigation />
-
-//     <div
-//       className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
-//     >
-//       <motion.div
-//         variants={zoomIn(0.2, 1)}
-//         className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
-//         initial='hidden'
-//         animate='show'
-//       >
-//         <h1 className='bg-white'>hello</h1>
-//       </motion.div>
-//     </div>
-//     {/* <EarthCanvas /> */}
-//     {/* <StarsCanvas /> */}
-
-//     <SignInForm />
-
-//     <EarthCanvas />
-
-//     <StarsCanvas />
-//     <Footer />
-//   </div>
