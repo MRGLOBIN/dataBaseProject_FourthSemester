@@ -33,14 +33,12 @@ const Home = () => {
           </p>
 
           <p className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium '>
-            Embark on a journey of refined project management with our
-            sophisticated Final Year Project Dashboard. Seamlessly orchestrate
-            your project's complexities with elegance and finesse, as our
-            platform empowers you to navigate tasks, deadlines, and
-            collaboration with unparalleled grace. Embrace the synergy of
-            innovation and sophistication as you sculpt your project
-            masterpiece. Join us and elevate your final year project experience
-            to new heights of achievement and distinction.
+          Embark on a journey of efficient project management with our
+          advanced Final Year Project Dashboard. Easily manage your project's 
+          complexities as our platform helps you navigate tasks, deadlines, and 
+          collaboration with precision. Embrace innovation and sophistication 
+          as you develop your project. Join us to elevate your final year project 
+          to new levels of achievement and success.
           </p>
         </motion.div>
       </div>

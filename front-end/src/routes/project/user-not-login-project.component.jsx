@@ -30,14 +30,11 @@ const UserNotLoginProject = () => {
           </p>
 
           <p className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium '>
-            Step into a realm where project management transcends mere
-            functionality, where each interaction with your final year project
-            becomes a symphony of refinement and finesse. Our Final Year Project
-            Dashboard isn't just a tool; it's a canvas upon which you'll paint
-            your journey to distinction. Seamlessly navigate the complexities of
-            project execution with our meticulously designed platform, where
-            every task, deadline, and collaboration is orchestrated with
-            elegance and precision.
+          Step into a space where project management is streamlined and efficient. 
+          Our Final Year Project Dashboard is not just a tool, but a well-crafted platform designed
+          to support your journey to success. Easily manage the complexities of project execution 
+          with a system that ensures every task, deadline, and collaboration is handled with clarity
+          and precision.
           </p>
         </motion.div>
       </div>
