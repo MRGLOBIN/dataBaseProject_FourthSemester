@@ -21,6 +21,10 @@ const SupervisorLoginMilestone = () => {
     setShowForm(!showForm)
   }
 
+  const closeCreateFormHandler = () => {
+    setShowForm(!showForm)
+  }
+
   return (
     <div className='flex flex-col w-3/5 items-center min-h-[85vh] mx-auto'>
       <motion.div
@@ -28,13 +32,19 @@ const SupervisorLoginMilestone = () => {
         className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
       >
         <Button buttonType={'inverted'} onClick={addMilestonehandler}>
-          {!showForm ? 'ADD MILESTONE' : 'SHOW MILESTONES'} hello
+          {!showForm ? 'ADD MILESTONE' : 'SHOW MILESTONES'}
         </Button>
-        {showForm && <MilestoneForm />}
+        {showForm && (
+          <MilestoneForm closeCreateFormHandler={closeCreateFormHandler} />
+        )}
         {!showForm &&
           milestones &&
           milestones.map(milestone => (
-            <MilestoneCard key={milestone.id} milestone={milestone} />
+            <MilestoneCard
+              key={milestone.id}
+              milestone={milestone}
+              closeCreateFormHandler
+            />
           ))}
       </motion.div>
     </div>
@@ -48,7 +58,7 @@ const defaultFormFields = {
   desc: '',
 }
 
-const MilestoneForm = () => {
+const MilestoneForm = ({ closeCreateFormHandler }) => {
   const [formFileds, setFormField] = useState(defaultFormFields)
 
   const { milestones, setMilestones } = useContext(MilestoneContext)
@@ -81,6 +91,7 @@ const MilestoneForm = () => {
       .catch(e => console.log(e))
     milestones.unshift(response)
     setMilestones(milestones)
+    closeCreateFormHandler()
   }
 
   return (
